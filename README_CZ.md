@@ -1,35 +1,26 @@
-# MP Tube 1.0 – Created by Marek Petr
+# MP-TUBE 1.1 — Created by Marek Petr
 
-**Samostatné nativní aplikace** pro Android a iPhone. Nejde o stránku v Brave ani PWA. Projekt obsahuje dva odlišné klienty, které zobrazují web YouTube ve vestavěném prohlížeči a umí blokovat síťové požadavky na omezený seznam známých reklamních a měřicích domén.
+Aktualizace existujícího Android projektu `cz.marekpetr.mptube`.
+Projekt je určen k sestavení pomocí původního Codemagic workflow.
 
-## Co je hotové
-- Mobilní YouTube v samostatném prohlížeči, vyhledávání a zadávání URL
-- Domů / zpět / vpřed / obnovit
-- Tmavé rozhraní a autorství **Created by Marek Petr**
-- Přepínač filtru, zapamatování nastavení i po zavření
-- Android: podpora celoobrazovkového HTML5 videa
-- iPhone: filtr přes WebKit Content Rule Lists
+## Co obsahuje
+- Zlatá animovaná úvodní obrazovka při každém spuštění: **Created by Marek Petr**
+- Vestavěný webový přehrávač mobilního YouTube
+- Vyhledávání, domů, zpět, vpřed, obnovení stránky
+- Přehrávání HTML5 videa na celou obrazovku
+- Volitelný jednoduchý filtr známých reklamních domén (bez záruky odstranění reklam)
+- Uložení nastavení filtru v telefonu
+- Tmavé rozhraní se zlatým označením autora
 
-## Co není ověřeno
+## Důležité omezení
+Toto je **WebView aplikace**, nikoliv plnohodnotný klon NewPipe.
+Neobsahuje nezávislý extraktor YouTube streamů, stahování videí,
+přehrávání na pozadí ani spolehlivé odstranění reklam.
+YouTube může omezit přehrávání nebo přihlašování ve WebView.
 
-Žádná APK ani IPA **zatím není sestavena a otestována na telefonu**. YouTube může reklamy načítat ze stejných domén jako přehrávač, takže **neexistuje záruka, že zmizí reklamy před videem nebo uvnitř videa**. Může se nepodařit přihlášení ke Google účtu v rámci WebView/WKWebView; přehrávání při zamknutém telefonu není zajištěno. Nejde o plnohodnotný Brave Shields. Neobsahuje YouTube API ani stahování chráněného obsahu.
+## Sestavení
+Nahraj soubory ZIP do kořene původního repozitáře MP-TUBE,
+přepiš stejnojmenné soubory a spusť existující workflow
+`mp-tube-android` v Codemagic. Výstup: `app-debug.apk`.
 
-## Vytvoření APK – Windows
-
-1. Nainstaluj Android Studio (software potřebuje internet pro stažení SDK a Gradle).
-2. Zvol **Open** a otevři složku `android` (ne celý ZIP).
-3. Po synchronizaci zvol **Build → Build Bundle(s) / APK(s) → Build APK(s)** (názvy menu se mohou v jednotlivých verzích lišit).
-4. Soubor vznikne v `android/app/build/outputs/apk/debug/app-debug.apk`.
-5. Přenes APK do telefonu, povol instalaci z daného zdroje a nainstaluj.
-
-Na Windows zde nemám Android SDK, takže APK nemohu sestavit přímo. Aplikace je navržena pro Android 8.0 a vyšší.
-
-## Vytvoření aplikace pro iPhone
-
-Potřebuješ Mac, Xcode, Apple účet pro podpis a `xcodegen` (`brew install xcodegen`). Ve složce `ios` spusť `xcodegen generate`, otevři vzniklý `MPTube.xcodeproj`, nastav Signing Team a spusť na iPhonu. Pro veřejnou distribuci platí další pravidla Apple.
-
-## Poznámka k reklamám
-
-Filtr je úmyslně konzervativní, aby co nejméně narušoval přehrávání. Záměrné obcházení reklam na YouTube může být v rozporu s podmínkami služby. Filtr lze v aplikaci vypnout.
-
-**Verze zdrojů:** 1.0 • **Vyrobil:** Marek Petr
+**Poznámka:** APK nebylo v tomto prostředí sestaveno ani otestováno.
